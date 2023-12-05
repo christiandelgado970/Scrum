@@ -1,4 +1,4 @@
-package com.CMEPPS.listatareas.controller;
+package com.CMEPPS.listatareas.controller.drivenadapters;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

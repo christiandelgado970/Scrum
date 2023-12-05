@@ -1,4 +1,4 @@
-package com.CMEPPS.listatareas.model;
+package com.CMEPPS.listatareas.model.application;
 
 import java.util.Date;
 
@@ -9,24 +9,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "todos")
-public class Todo {
+@Table(name = "tareas")
+public class Tarea {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String userName;
+    private String nombre;
     private String description;
     private Date targetDate;
 
-    public Todo() {
+    public Tarea() {
         super();
     }
 
-    public Todo(String user, String desc, Date targetDate, boolean isDone) {
+    public Tarea(String user, String desc, Date targetDate, boolean isDone) {
         super();
-        this.userName = user;
+        this.nombre = user;
         this.description = desc;
         this.targetDate = targetDate;
     }
@@ -40,11 +40,11 @@ public class Todo {
     }
 
     public String getUserName() {
-        return userName;
+        return nombre;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.nombre = userName;
     }
 
     public String getDescription() {
