@@ -37,7 +37,6 @@ public class TareaController {
     public String showTodos(ModelMap model) {
         String name = getLoggedInUserName(model);
         model.put("tareas", tareaService.getTodosByUser(name));
-        //model.put("todos", service.retrieveTodos(name));
         return "list-todos";
     }
 
@@ -53,21 +52,20 @@ public class TareaController {
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
-        model.addAttribute("tarea", new Tarea());
+        model.addAttribute("todo", new Tarea());
         return "todo";
     }
 
     @RequestMapping(value = "/delete-todo", method = RequestMethod.GET)
     public String deleteTodo(@RequestParam long id) {
         tareaService.deleteTodo(id);
-        // service.deleteTodo(id);
         return "redirect:/list-todos";
     }
 
     @RequestMapping(value = "/update-todo", method = RequestMethod.GET)
     public String showUpdateTodoPage(@RequestParam long id, ModelMap model) {
         Tarea tarea = tareaService.getTodoById(id).get();
-        model.put("tarea", tarea);
+        model.put("todo", tarea);
         return "todo";
     }
 
@@ -78,7 +76,7 @@ public class TareaController {
             return "todo";
         }
 
-        tarea.setUserName(getLoggedInUserName(model));
+        tarea.setNombre(getLoggedInUserName(model));
         tareaService.updateTodo(tarea);
         return "redirect:/list-todos";
     }
@@ -89,9 +87,12 @@ public class TareaController {
         if (result.hasErrors()) {
             return "todo";
         }
+        
+        System.out.println(tarea.getNombre());
+        //la guarda bien
 
-        tarea.setUserName(getLoggedInUserName(model));
         tareaService.saveTodo(tarea);
+        
         return "redirect:/list-todos";
     }
 }

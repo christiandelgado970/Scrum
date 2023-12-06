@@ -3,8 +3,10 @@
 
 <div class="container">
 	<div>
-		<a type="button" class="btn btn-primary btn-md" href="/add-todo">Añadir
-			tarea</a>
+		<a type="button" class="btn btn-primary btn-md" href="/add-todo">Añadir</a>
+	    <a type="button" class="btn btn-primary btn-md" href="/filtrar-todo">Filtrar/a>
+	    <a type="button" class="btn btn-primary btn-md" href="/ordenar-todo">Ordenar</a>
+		<a type="button" class="btn btn-primary btn-md" href="/terminadadas-todo">Terminadas</a>
 	</div>
 	<br>
 	<div class="panel panel-primary">
@@ -15,20 +17,25 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th width="40%">Descripción</th>
-						<th width="40%">Fecha objetivo</th>
-						<th width="20%"></th>
+						<th width="12.5%">Nombre</th>
+						<th width="12.5%">Prioridad</th>
+						<th width="12.5%">Duracion</th>
+						<th width="12.5%">Estado</th>
+						<th width="12.5%">Descripcion</th>
+						<th width="12.5%"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${todos}" var="todo">
 						<tr>
-							<td>${todo.description}</td>
-							<td><fmt:formatDate value="${todo.targetDate}"
-									pattern="dd/MM/yyyy" /></td>
+							<td>${todo.nombre}</td>
+							<td>${todo.prioridad}"</td>
+							<td>${todo.Intduracion}  ${todo.Tipoduracion}</td>
+							<td>${todo.estado}"</td>
+							<td>${todo.descripcion}"</td>
 							<td><a type="button" class="btn btn-success"
 								href="/update-todo?id=${todo.id}">Editar</a> <a type="button"
-								class="btn btn-warning" href="/delete-todo?id=${todo.id}">Borrar</a></td>
+								class="btn btn-warning" href="/terminar-todo?id=${todo.id}">Terminar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

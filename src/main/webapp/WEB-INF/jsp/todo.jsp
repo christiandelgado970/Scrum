@@ -8,20 +8,29 @@
 				<div class="panel-body">
 					<form:form method="post" modelAttribute="todo">
 						<form:hidden path="id" />
+						
 						<fieldset class="form-group">
-							<form:label path="description">Description</form:label>
-							<form:input path="description" type="text" class="form-control"
+							<form:label path="nombre">Nombre</form:label>
+							<form:input path="nombre" type="text" class="form-control"
 								required="required" />
-							<form:errors path="description" cssClass="text-warning" />
+							<form:errors path="nombre" cssClass="text-warning" />
+						</fieldset>
+						
+						<fieldset class="form-group">
+							<form:label path="descripcion">Description</form:label>
+							<form:input path="descripcion" type="text" class="form-control"
+								required="required" />
+							<form:errors path="descripcion" cssClass="text-warning" />
 						</fieldset>
 
 						<fieldset class="form-group">
-							<form:label path="targetDate">Fecha objetivo</form:label>
-							<form:input path="targetDate" type="text" class="form-control"
+							<form:label path="Intduracion">Duracion</form:label>
+							<form:input path="Intduracion" type="text" class="form-control"
 								required="required" />
-							<form:errors path="targetDate" cssClass="text-warning" />
+							<form:errors path="Intduracion" cssClass="text-warning" />
 						</fieldset>
 
+						
 						<button type="submit" class="btn btn-success">Guardar</button>
 					</form:form>
 				</div>

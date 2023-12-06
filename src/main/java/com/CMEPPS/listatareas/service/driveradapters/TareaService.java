@@ -1,12 +1,14 @@
 package com.CMEPPS.listatareas.service.driveradapters;
 
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.CMEPPS.listatareas.model.application.DuracionTipo;
+import com.CMEPPS.listatareas.model.application.EstadoTarea;
 import com.CMEPPS.listatareas.model.application.Tarea;
 import com.CMEPPS.listatareas.repository.drivenports.ITareaRepository;
 import com.CMEPPS.listatareas.service.driverport.ITareaService;
@@ -33,8 +35,8 @@ public class TareaService implements ITareaService {
 	}
 
 	@Override
-	public void addTodo(String name, String desc, Date targetDate, boolean isDone) {
-		iTareaRepository.save(new Tarea(name, desc, targetDate, isDone));
+	public void addTodo(String nombre, String descripcion , int prioridad ,int Intduracion) {
+		iTareaRepository.save(new Tarea( nombre, descripcion,prioridad , Intduracion));
 	}
 
 	@Override
@@ -47,6 +49,7 @@ public class TareaService implements ITareaService {
 
 	@Override
 	public void saveTodo(Tarea tarea) {
+		System.out.println("save " + tarea.getNombre());
 		iTareaRepository.save(tarea);
 	}
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.CMEPPS.listatareas.model.application.DuracionTipo;
+import com.CMEPPS.listatareas.model.application.EstadoTarea;
 import com.CMEPPS.listatareas.model.application.Tarea;
 
 public interface ITareaService {
@@ -15,7 +17,7 @@ public interface ITareaService {
 
     void updateTodo(Tarea tarea);
 
-    void addTodo(String name, String desc, Date targetDate, boolean isDone);
+    void addTodo(String nombre, String descripcion, int prioridad ,int Intduracion);
 
     void deleteTodo(long id);
 

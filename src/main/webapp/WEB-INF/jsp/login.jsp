@@ -1,9 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
+<%@ include file="common/header.jspf"%>
     <h2>Login</h2>
     <form action="/login" method="post">
         <label for="username">Username:</label>
@@ -14,5 +9,4 @@
         <br>
         <button type="submit">Login</button>
     </form>
-</body>
-</html>
+<%@ include file="common/footer.jspf"%>

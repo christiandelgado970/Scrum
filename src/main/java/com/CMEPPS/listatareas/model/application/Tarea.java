@@ -17,18 +17,25 @@ public class Tarea {
     private long id;
 
     private String nombre;
-    private String description;
-    private Date targetDate;
+    private String descripcion;
+    private int Intduracion;
+    private DuracionTipo Tipoduracion;
+    private EstadoTarea estado;
+    private int prioridad;
 
     public Tarea() {
         super();
     }
 
-    public Tarea(String user, String desc, Date targetDate, boolean isDone) {
+    public Tarea(String nombre, String descripcion,int prioridad,int Intduracion) {
         super();
-        this.nombre = user;
-        this.description = desc;
-        this.targetDate = targetDate;
+        this.nombre = nombre;
+        this.prioridad = prioridad;
+        this.Intduracion = Intduracion;
+        this.descripcion = descripcion;
+        
+        this.Tipoduracion = DuracionTipo.Horas;
+        this.estado = EstadoTarea.En_Curso;
     }
 
     public long getId() {
@@ -39,27 +46,53 @@ public class Tarea {
         this.id = id;
     }
 
-    public String getUserName() {
-        return nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setUserName(String userName) {
-        this.nombre = userName;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
-    public Date getTargetDate() {
-        return targetDate;
-    }
+	public DuracionTipo getTipoduracion() {
+		return Tipoduracion;
+	}
 
-    public void setTargetDate(Date targetDate) {
-        this.targetDate = targetDate;
-    }
+	public void setTipoduracion(DuracionTipo tipoduracion) {
+		Tipoduracion = tipoduracion;
+	}
+
+	public EstadoTarea getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoTarea estado) {
+		this.estado = estado;
+	}
+
+	public int getPrioridad() {
+		return prioridad;
+	}
+
+	public void setPrioridad(int prioridad) {
+		this.prioridad = prioridad;
+	}
+	
+	public int getIntduracion() {
+		return Intduracion;
+	}
+	
+	public void setIntduracion(int intduracion) {
+		Intduracion = intduracion;
+	}
+    
+    
 }    
