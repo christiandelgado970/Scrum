@@ -20,6 +20,11 @@ public class TareaService implements ITareaService {
 	private ITareaRepository iTareaRepository;
 
 	@Override
+	public List < Tarea > getTodos(){
+		return iTareaRepository.findAll();
+	}
+	
+	@Override
 	public List<Tarea> getTodosByUser(String user) {
 		return iTareaRepository.findByNombre(user);
 	}
@@ -35,8 +40,8 @@ public class TareaService implements ITareaService {
 	}
 
 	@Override
-	public void addTodo(String nombre, String descripcion , int prioridad ,int Intduracion) {
-		iTareaRepository.save(new Tarea( nombre, descripcion,prioridad , Intduracion));
+	public void addTodo(String nombre, String descripcion , int prioridad ,int intduracion, DuracionTipo tp ) {
+		iTareaRepository.save(new Tarea(nombre, descripcion, prioridad,intduracion, tp));
 	}
 
 	@Override
@@ -49,7 +54,6 @@ public class TareaService implements ITareaService {
 
 	@Override
 	public void saveTodo(Tarea tarea) {
-		System.out.println("save " + tarea.getNombre());
 		iTareaRepository.save(tarea);
 	}
 }

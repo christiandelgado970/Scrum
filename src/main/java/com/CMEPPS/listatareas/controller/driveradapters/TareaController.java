@@ -35,8 +35,9 @@ public class TareaController {
 
     @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
     public String showTodos(ModelMap model) {
-        String name = getLoggedInUserName(model);
-        model.put("tareas", tareaService.getTodosByUser(name));
+        //String name = "Cris";
+        model.put("todos", tareaService.getTodos());
+        //model.put("todos", tareaService.getTodosByUser(name));
         return "list-todos";
     }
 
@@ -76,7 +77,7 @@ public class TareaController {
             return "todo";
         }
 
-        tarea.setNombre(getLoggedInUserName(model));
+        //tarea.setNombre(getLoggedInUserName(model));
         tareaService.updateTodo(tarea);
         return "redirect:/list-todos";
     }
@@ -90,9 +91,8 @@ public class TareaController {
         
         System.out.println(tarea.getNombre());
         //la guarda bien
-
-        tareaService.saveTodo(tarea);
         
+        tareaService.addTodo(tarea.getNombre(),tarea.getDescripcion(),tarea.getPrioridad(),tarea.getIntduracion(), tarea.getTipoduracion());
         return "redirect:/list-todos";
     }
 }

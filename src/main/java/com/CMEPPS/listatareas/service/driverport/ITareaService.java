@@ -12,12 +12,14 @@ import com.CMEPPS.listatareas.model.application.Tarea;
 public interface ITareaService {
 
     List < Tarea > getTodosByUser(String user);
+    
+    List < Tarea > getTodos();
 
     Optional < Tarea > getTodoById(long id);
 
     void updateTodo(Tarea tarea);
 
-    void addTodo(String nombre, String descripcion, int prioridad ,int Intduracion);
+    void addTodo(String nombre, String descripcion, int prioridad ,int Intduracion, DuracionTipo tp);
 
     void deleteTodo(long id);
 

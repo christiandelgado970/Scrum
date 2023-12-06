@@ -8,4 +8,5 @@ import com.CMEPPS.listatareas.model.application.Tarea;
 
 public interface ITareaRepository extends JpaRepository < Tarea, Long > {
     List < Tarea > findByNombre(String Nombre);
+    
 }

@@ -1,12 +1,12 @@
 package com.CMEPPS.listatareas.model.application;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name = "tareas")
@@ -18,24 +18,33 @@ public class Tarea {
 
     private String nombre;
     private String descripcion;
-    private int Intduracion;
-    private DuracionTipo Tipoduracion;
+    private int intduracion;
+    private DuracionTipo tipoduracion;
     private EstadoTarea estado;
     private int prioridad;
 
     public Tarea() {
-        super();
+    	this.nombre = "";
+    	this.descripcion = "";
+        this.descripcion = "";
+    	this.tipoduracion = DuracionTipo.Horas;
+    	this.estado = EstadoTarea.En_Curso;
     }
-
-    public Tarea(String nombre, String descripcion,int prioridad,int Intduracion) {
-        super();
+    
+    @Autowired
+    public Tarea(String nombre, String descripcion,int prioridad,int Intduracion, DuracionTipo tp) {
         this.nombre = nombre;
         this.prioridad = prioridad;
-        this.Intduracion = Intduracion;
+        this.intduracion = Intduracion;
         this.descripcion = descripcion;
         
-        this.Tipoduracion = DuracionTipo.Horas;
+        //String aux= String.valueOf(Intduracion);
+        
+        this.tipoduracion = tp;
         this.estado = EstadoTarea.En_Curso;
+        
+    	System.out.println("Creado: " +  tipoduracion);
+        
     }
 
     public long getId() {
@@ -63,11 +72,11 @@ public class Tarea {
 	}
 
 	public DuracionTipo getTipoduracion() {
-		return Tipoduracion;
+		return tipoduracion;
 	}
 
 	public void setTipoduracion(DuracionTipo tipoduracion) {
-		Tipoduracion = tipoduracion;
+		this.tipoduracion = tipoduracion;
 	}
 
 	public EstadoTarea getEstado() {
@@ -87,11 +96,11 @@ public class Tarea {
 	}
 	
 	public int getIntduracion() {
-		return Intduracion;
+		return intduracion;
 	}
 	
 	public void setIntduracion(int intduracion) {
-		Intduracion = intduracion;
+		this.intduracion = intduracion;
 	}
     
     

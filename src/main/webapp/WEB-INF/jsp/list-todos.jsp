@@ -29,13 +29,13 @@
 					<c:forEach items="${todos}" var="todo">
 						<tr>
 							<td>${todo.nombre}</td>
-							<td>${todo.prioridad}"</td>
-							<td>${todo.Intduracion}  ${todo.Tipoduracion}</td>
-							<td>${todo.estado}"</td>
-							<td>${todo.descripcion}"</td>
+							<td>${todo.prioridad}</td>
+							<td>${todo.intduracion} ${todo.tipoduracion}</td>
+							<td>${todo.estado}</td>
+							<td>${todo.descripcion}</td>
 							<td><a type="button" class="btn btn-success"
 								href="/update-todo?id=${todo.id}">Editar</a> <a type="button"
-								class="btn btn-warning" href="/terminar-todo?id=${todo.id}">Terminar</a></td>
+								class="btn btn-warning" href="/delete-todo?id=${todo.id}">Terminar</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
