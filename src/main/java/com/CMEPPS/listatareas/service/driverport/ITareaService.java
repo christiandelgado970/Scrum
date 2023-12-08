@@ -1,12 +1,10 @@
 
 package com.CMEPPS.listatareas.service.driverport;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import com.CMEPPS.listatareas.model.application.DuracionTipo;
-import com.CMEPPS.listatareas.model.application.EstadoTarea;
 import com.CMEPPS.listatareas.model.application.Tarea;
 
 public interface ITareaService {

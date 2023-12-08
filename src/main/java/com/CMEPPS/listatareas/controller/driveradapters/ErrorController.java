@@ -1,4 +1,4 @@
-package com.CMEPPS.listatareas.controller.drivenadapters;
+package com.CMEPPS.listatareas.controller.driveradapters;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;

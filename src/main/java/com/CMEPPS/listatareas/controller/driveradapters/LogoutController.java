@@ -1,4 +1,4 @@
-package com.CMEPPS.listatareas.controller.drivenadapters;
+package com.CMEPPS.listatareas.controller.driveradapters;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
