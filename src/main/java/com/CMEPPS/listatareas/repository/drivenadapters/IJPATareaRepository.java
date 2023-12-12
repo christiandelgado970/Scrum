@@ -9,6 +9,9 @@ import com.CMEPPS.listatareas.model.application.Tarea;
 
 public interface IJPATareaRepository extends JpaRepository < Tarea, Long > {
     List < Tarea > findByNombre(String Nombre);
+    List < Tarea > findByPrioridad(int Prioridad);
+    List < Tarea > findAllByOrderByTipoduracionDesc();
+    List < Tarea > findAllByOrderByPrioridadDesc();
     
 }
 

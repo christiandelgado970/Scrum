@@ -30,6 +30,31 @@ public List<Tarea> findByNombre(String Nombre) {
 		return tareas;
 	}
 	@Override
+	public List<Tarea> findByPrioridad(int Prioridad) {
+		List<Tarea> tareas = iJPATareaRepository.findByPrioridad(Prioridad);
+		return tareas;
+	}
+	@Override
+	public List<Tarea> findByOrdenar(String Nombre) {
+		List<Tarea> tareas = iJPATareaRepository.findAll();
+		return tareas;
+	}
+	@Override
+	public List<Tarea> findByOrdenar (int tipo) {
+		
+		List<Tarea> tareas  = null;
+		if(tipo == 1)//Por duracion
+		{
+			tareas = iJPATareaRepository.findAllByOrderByTipoduracionDesc();
+		}
+		else //por prioridad
+		{
+			tareas = iJPATareaRepository.findAllByOrderByPrioridadDesc();
+		}
+		
+		return tareas;
+	}
+	@Override
 	public void save(Tarea tarea) {
 		iJPATareaRepository.save(tarea);
 	}

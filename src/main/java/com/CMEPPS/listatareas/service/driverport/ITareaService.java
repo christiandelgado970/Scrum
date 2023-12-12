@@ -12,6 +12,10 @@ public interface ITareaService {
     List < Tarea > getTodosByUser(String user);
     
     List < Tarea > getTodos();
+    
+    List < Tarea > getTodosFiltro(int prioridad);
+    
+    List < Tarea > getTodosOrdenar(int tipo);
 
     Optional < Tarea > getTodoById(long id);
 

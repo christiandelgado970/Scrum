@@ -30,9 +30,20 @@ public class TareaService implements ITareaService {
 	}
 
 	@Override
+	public List<Tarea> getTodosFiltro(int prioridad) {
+		return iTareaRepository.findByPrioridad(prioridad);
+	}
+	
+	@Override
+	public List<Tarea> getTodosOrdenar(int tipo) {
+		return iTareaRepository.findByOrdenar(tipo);
+	}
+	
+	@Override
 	public Optional<Tarea> getTodoById(long id) {
 		return iTareaRepository.findById(id);
 	}
+	
 
 	@Override
 	public void updateTodo(Tarea tarea) {
