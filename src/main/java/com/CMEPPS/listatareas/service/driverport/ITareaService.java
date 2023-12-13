@@ -9,6 +9,8 @@ import com.CMEPPS.listatareas.model.application.Tarea;
 
 public interface ITareaService {
 
+    List < Tarea > getTodoByName(String name);
+    
     List < Tarea > getTodosByUser(String user);
     
     List < Tarea > getTodos();
@@ -16,12 +18,16 @@ public interface ITareaService {
     List < Tarea > getTodosFiltro(int prioridad);
     
     List < Tarea > getTodosOrdenar(int tipo);
+    
+    List < Tarea > getTodosFiltro(int prioridad,String user);
+    
+    List < Tarea > getTodosOrdenar(int tipo,String user);
 
     Optional < Tarea > getTodoById(long id);
 
     void updateTodo(Tarea tarea);
 
-    void addTodo(String nombre, String descripcion, int prioridad ,int Intduracion, DuracionTipo tp);
+    void addTodo(String nombre, String descripcion, int prioridad ,int Intduracion, DuracionTipo tp, String usuario);
 
     void deleteTodo(long id);
 

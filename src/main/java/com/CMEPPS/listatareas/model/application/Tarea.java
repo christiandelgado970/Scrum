@@ -22,6 +22,7 @@ public class Tarea {
     private DuracionTipo tipoduracion;
     private EstadoTarea estado;
     private int prioridad;
+    private String usuario;
 
     public Tarea() {
     	this.nombre = "";
@@ -29,23 +30,27 @@ public class Tarea {
         this.descripcion = "";
     	this.tipoduracion = DuracionTipo.Horas;
     	this.estado = EstadoTarea.En_Curso;
+    	this.usuario = "";
     }
     
     @Autowired
-    public Tarea(String nombre, String descripcion,int prioridad,int Intduracion, DuracionTipo tp) {
+    public Tarea(String nombre, String descripcion,int prioridad,int Intduracion, DuracionTipo tp, String usuario) {
         this.nombre = nombre;
         this.prioridad = prioridad;
         this.intduracion = Intduracion;
         this.descripcion = descripcion;
-        
-        //String aux= String.valueOf(Intduracion);
-        
         this.tipoduracion = tp;
         this.estado = EstadoTarea.En_Curso;
-        
-    	System.out.println("Creado: " +  tipoduracion);
-        
+        this.usuario = usuario;
     }
+    
+    public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
     public long getId() {
         return id;

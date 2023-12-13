@@ -23,15 +23,29 @@ public class TareaService implements ITareaService {
 	public List < Tarea > getTodos(){
 		return iTareaRepository.findAll();
 	}
+	@Override
+	public List<Tarea> getTodoByName(String name) {
+		return iTareaRepository.findByNombre(name);
+	}
 	
 	@Override
 	public List<Tarea> getTodosByUser(String user) {
-		return iTareaRepository.findByNombre(user);
+		return iTareaRepository.findAllByUser(user);
 	}
 
 	@Override
 	public List<Tarea> getTodosFiltro(int prioridad) {
 		return iTareaRepository.findByPrioridad(prioridad);
+	}
+	
+	@Override
+	public List<Tarea> getTodosOrdenar(int tipo,String user) {
+		return iTareaRepository.findByOrdenarAndUser(tipo, user);
+	}
+	
+	@Override
+	public List<Tarea> getTodosFiltro(int prioridad,String user) {
+		return iTareaRepository.findByPrioridadAndUser(prioridad, user);
 	}
 	
 	@Override
@@ -47,12 +61,13 @@ public class TareaService implements ITareaService {
 
 	@Override
 	public void updateTodo(Tarea tarea) {
+		
 		iTareaRepository.save(tarea);
 	}
 
 	@Override
-	public void addTodo(String nombre, String descripcion , int prioridad ,int intduracion, DuracionTipo tp ) {
-		iTareaRepository.save(new Tarea(nombre, descripcion, prioridad,intduracion, tp));
+	public void addTodo(String nombre, String descripcion , int prioridad ,int intduracion, DuracionTipo tp, String usuario ) {
+		iTareaRepository.save(new Tarea(nombre, descripcion, prioridad,intduracion, tp, usuario));
 	}
 
 	@Override
@@ -60,7 +75,6 @@ public class TareaService implements ITareaService {
 		Optional<Tarea> tarea = iTareaRepository.findById(id);
 		if (tarea.isPresent()) {
 			iTareaRepository.delete(tarea.get());
-			System.out.println("Llego");
 		}
 	}
 

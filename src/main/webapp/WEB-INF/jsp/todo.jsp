@@ -63,7 +63,8 @@
 							<form:errors path="tipoduracion" cssClass="text-warning" />
 						</fieldset>
 
-
+						<form:hidden path="usuario" />
+						
 						<button type="submit" class="btn btn-success">Guardar</button>
 					</form:form>
 				</div>

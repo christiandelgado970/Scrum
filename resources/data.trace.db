@@ -3846,3 +3846,7 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Cristia
 	at org.h2.mvstore.FileStore.open(FileStore.java:128)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
 	... 57 more
+2023-12-13 14:47:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]TAREAS"; se esperaba "TRUNCATE"
+Syntax error in SQL statement "[*]TAREAS"; expected "TRUNCATE"; SQL statement:
+TAREAS [42001-214]

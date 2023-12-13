@@ -5,7 +5,7 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading">Página principal</div>
 		<div class="panel-body">
-			Bienvenido ${name}! <a href="/list-todos">Pulsa aquí</a> para
+			Bienvenido ${user.nombre}! <a href="/list-todos?username=${user.nombre}">Pulsa aquí</a> para
 			gestionar tus tareas.
 		</div>
 	</div>

@@ -35,11 +35,6 @@ public List<Tarea> findByNombre(String Nombre) {
 		return tareas;
 	}
 	@Override
-	public List<Tarea> findByOrdenar(String Nombre) {
-		List<Tarea> tareas = iJPATareaRepository.findAll();
-		return tareas;
-	}
-	@Override
 	public List<Tarea> findByOrdenar (int tipo) {
 		
 		List<Tarea> tareas  = null;
@@ -47,9 +42,13 @@ public List<Tarea> findByNombre(String Nombre) {
 		{
 			tareas = iJPATareaRepository.findAllByOrderByTipoduracionDesc();
 		}
-		else //por prioridad
+		else if(tipo == 2) //por prioridad
 		{
 			tareas = iJPATareaRepository.findAllByOrderByPrioridadDesc();
+		}
+		else //por usuario
+		{
+			tareas = iJPATareaRepository.findAllByOrderByUsuarioDesc();
 		}
 		
 		return tareas;
@@ -61,5 +60,30 @@ public List<Tarea> findByNombre(String Nombre) {
 	@Override
 	public void delete(Tarea tarea) {
 		iJPATareaRepository.delete(tarea);
+	}
+	@Override
+	public List<Tarea> findByPrioridadAndUser(int Prioridad, String User) {
+		List<Tarea> tareas = iJPATareaRepository.findByPrioridadAndUsuario(Prioridad,User);
+		return tareas;
+	}
+	@Override
+	public List<Tarea> findByOrdenarAndUser(int tipo, String User) {
+		
+		List<Tarea> tareas  = null;
+		if(tipo == 1)//Por duracion
+		{
+			tareas = iJPATareaRepository.findAllByUsuarioOrderByTipoduracionDesc(User);
+		}
+		else //por prioridad
+		{
+			tareas = iJPATareaRepository.findAllByUsuarioOrderByPrioridadDesc(User);
+		}
+		
+		return tareas;
+	}
+	@Override
+	public List<Tarea> findAllByUser(String User) {
+		List<Tarea> tareas = iJPATareaRepository.findByUsuario(User);
+		return tareas;
 	}
 }

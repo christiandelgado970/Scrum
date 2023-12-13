@@ -3,10 +3,9 @@
 
 <div class="container">
 	<div>
-		<a type="button" class="btn btn-primary btn-md" href="/add-todo">Añadir</a>
-	    <a type="button" class="btn btn-primary btn-md" href="/filtrar-todo">Filtrar/a>
-	    <a type="button" class="btn btn-primary btn-md" href="/ordenar-todo">Ordenar de otra forma</a>
-		<a type="button" class="btn btn-primary btn-md" href="/list-todos">No terminadas</a>
+	    <a type="button" class="btn btn-primary btn-md" href="/filtrar-todo?username=${user.nombre}">Filtrar/a>
+	    <a type="button" class="btn btn-primary btn-md" href="/ordenar-todo?username=${user.nombre}">Ordenar de otra forma</a>
+		<a type="button" class="btn btn-primary btn-md" href="/list-todos?username=${user.nombre}">Volver</a>
 	</div>
 	<br>
 	<div class="panel panel-primary">
@@ -17,12 +16,11 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th width="11.5%">Nombre</th>
-						<th width="11.5%">Prioridad</th>
-						<th width="11.5%">Duracion</th>
-						<th width="11.5%">Estado</th>
-						<th width="11.5%">Descripcion</th>
-						<th width="17.5%"></th>
+						<th width="20%%">Nombre</th>
+						<th width="20%%">Prioridad</th>
+						<th width="20%">Duracion</th>
+						<th width="20%%">Estado</th>
+						<th width="20%%">Descripcion</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,11 +32,6 @@
 							<td>${todo.intduracion} ${todo.tipoduracion}</td>
 							<td>${todo.estado}</td>
 							<td>${todo.descripcion}</td>
-							<td>
-							<a type="button" class="btn btn-success" href="/update-todo?id=${todo.id}">Editar</a> 
-							<a type="button" class="btn btn-warning" href="/delete-todo?id=${todo.id}">Terminar</a>
-							<a type="button" class="btn btn-warning" href="/archivar-todo?id=${todo.id}">Archivar</a> 
-							</td>
 						</tr>
 				      </c:if>
 					</c:forEach>

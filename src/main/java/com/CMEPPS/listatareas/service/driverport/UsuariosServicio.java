@@ -17,32 +17,16 @@ public class UsuariosServicio implements IUsuariosServicio{
 	private IUsuarioAcceso iUsuarioAcceso;
 	
 	@Override
-	public Optional<Usuario> getUsuarioById(long id) {
-		return iUsuarioAcceso.findById(id);
-	}
-
-	@Override
-	public List<Usuario> getUsuarioByName(String Nombre) {
+	public Optional<Usuario> getUsuarioByName(String Nombre) {
 		return iUsuarioAcceso.findByNombre(Nombre);
 	}
 
-	@Override
-	public void updateUsuario(Usuario usuario) {
-		iUsuarioAcceso.save(usuario);
-	}
 
 	@Override
 	public void addUsuario(String nombre, String contrasena) {
 		iUsuarioAcceso.save(new Usuario(nombre,contrasena));
 	}
 
-	@Override
-	public void deleteUsuario(long id) {
-		Optional<Usuario> usuario = iUsuarioAcceso.findById(id);
-		if (usuario.isPresent()) {
-			iUsuarioAcceso.delete(usuario.get());
-		}
-	}
 
 	@Override
 	public void saveUsuario(Usuario usuario) {

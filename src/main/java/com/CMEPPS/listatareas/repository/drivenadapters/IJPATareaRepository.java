@@ -12,7 +12,12 @@ public interface IJPATareaRepository extends JpaRepository < Tarea, Long > {
     List < Tarea > findByPrioridad(int Prioridad);
     List < Tarea > findAllByOrderByTipoduracionDesc();
     List < Tarea > findAllByOrderByPrioridadDesc();
+    List < Tarea > findAllByOrderByUsuarioDesc();
     
+    List < Tarea > findByUsuario(String usuario);
+    List < Tarea > findByPrioridadAndUsuario(int Prioridad,String Usuario);
+    List < Tarea > findAllByUsuarioOrderByPrioridadDesc(String Usuario);
+    List < Tarea > findAllByUsuarioOrderByTipoduracionDesc(String Usuario);
 }
 
 
