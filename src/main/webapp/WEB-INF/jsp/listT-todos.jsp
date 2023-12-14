@@ -26,8 +26,15 @@
 				<tbody>
 					<c:forEach items="${todos}" var="todo">
 					<c:if test="${todo.estado == 'Archivada'}">
-						 <tr style="${todo.estado == 'Completada' ? 'background-color: #c0c0c0;' : ''}">
-							<td>${todo.nombre}</td>
+						 <tr>
+							<c:choose>
+									<c:when test="${user.admin == true}">
+										<td>${todo.nombre} - ${todo.usuario}</td>
+									</c:when>
+									<c:otherwise>
+										<td>${todo.nombre}</td>
+									</c:otherwise>
+								</c:choose>
 							<td>${todo.prioridad}</td>
 							<td>${todo.intduracion} ${todo.tipoduracion}</td>
 							<td>${todo.estado}</td>

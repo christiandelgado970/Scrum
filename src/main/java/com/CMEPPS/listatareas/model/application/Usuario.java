@@ -24,8 +24,6 @@ public class Usuario {
 	private String contrasena;
 	private boolean admin;
 	
-	@OneToMany(mappedBy = "nombre", cascade = CascadeType.ALL)
-    private List<Tarea> Tareas;
 	
 	public Usuario() {
 		super();
@@ -52,7 +50,7 @@ public class Usuario {
 	}
 
 	public void setNombre(String nombre) {
-		nombre = nombre;
+		this.nombre = nombre;
 	}
 	
 	public String getContrasena() {
@@ -60,15 +58,7 @@ public class Usuario {
 	}
 
 	public void setContrasena(String contrasena) {
-		contrasena = contrasena;
-	}
-
-	public List<Tarea> getTareas() {
-		return Tareas;
-	}
-
-	public void setTareas(List<Tarea> tareas) {
-		Tareas = tareas;
+		this.contrasena = contrasena;
 	}
 
 	public boolean isAdmin() {

@@ -33,7 +33,7 @@
 								style="${todo.estado == 'Completada' ? 'background-color: #c0c0c0;' : ''}">
 								<c:choose>
 									<c:when test="${user.admin == true}">
-										<td>${todo.nombre}-${todo.usuario}</td>
+										<td>${todo.nombre} - ${todo.usuario}</td>
 									</c:when>
 									<c:otherwise>
 										<td>${todo.nombre}</td>
